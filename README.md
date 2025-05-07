@@ -42,7 +42,7 @@ g++ -std=c++11 -Iinclude src/shapes/*.cpp tests/test_shapes.cpp -o test_shapes
 
 ---
 
-### 📁 Structure du projet
+### Structure du projet
 
 ```text
 main.cpp               : point d’entrée
