@@ -3,6 +3,10 @@
 #include "shapes.hpp"
 #include <vector>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 09649898c36814cafc288fc18f0c18847106a5a7
 int main() {
 	
 	// Define points in a vector

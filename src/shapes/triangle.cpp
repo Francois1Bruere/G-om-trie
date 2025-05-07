@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <cmath>
 #include "point.hpp"
 #include "triangle.hpp"
@@ -52,3 +53,9 @@ void Triangle::translate(Point T) {
     draw();
 }
 
+=======
+#include "point.hpp"
+#include "shapes/triangle.hpp"
+
+Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
+>>>>>>> 09649898c36814cafc288fc18f0c18847106a5a7
