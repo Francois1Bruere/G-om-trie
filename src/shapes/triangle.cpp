@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <cmath>
 #include "point.hpp"
 #include "triangle.hpp"
@@ -49,13 +48,31 @@ void Triangle::translate(Point T) {
     
     C.x += dx; 
     C.y += dy;
-    
-    draw();
 }
 
-=======
-#include "point.hpp"
-#include "shapes/triangle.hpp"
+void Triangle::resize(double ratio) {
+    Point o = center();
 
-Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
->>>>>>> 09649898c36814cafc288fc18f0c18847106a5a7
+    A.x = o.x + (A.x - o.x) * ratio;
+    A.y = o.y + (A.y - o.y) * ratio;
+    
+    B.x = o.x + (B.x - o.x) * ratio;
+    B.y = o.y + (B.y - o.y) * ratio;
+    
+    C.x = o.x + (C.x - o.x) * ratio;
+    C.y = o.y + (C.y - o.y) * ratio;
+
+}
+
+void rotate(double angle){
+	// rotate counterclockwise around the center of the triangle
+	
+}  
+
+bool equals(Triangle triangle){}
+
+bool isRightAngled(){}
+
+bool isEquilateral(){}
+
+bool isIsoceles(){}
