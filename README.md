@@ -28,7 +28,6 @@ g++ -std=c++23 -Iinclude -o main src/*.cpp src/shapes/*.cpp main.cpp -lgdi32 -lu
 ### Installation & dépendances
 
 Aucune bibliothèque externe n’est requise en dehors du standard C++.
-Le code est découpé selon une structure modulaire propre à l’apprentissage de la POO.
 
 ---
 
@@ -50,5 +49,5 @@ include/               : fichiers headers
 ├── shapes/            : interfaces des formes géométriques
 src/                   : fichiers d’implémentation
 ├── shapes/            : implémentations des formes
-tests/ (optionnel)     : fichiers de test
+tests/                 : fichiers de test
 ```
