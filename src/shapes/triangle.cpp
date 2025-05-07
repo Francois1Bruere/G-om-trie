@@ -68,17 +68,24 @@ void Triangle::rotate(double angle) {
 	// rotate counterclockwise around the center of the triangle 
 	//use radiants angle
 	
+	Point o = center();
+	
+	
+	
 }
 
 
 bool equals(Triangle triangle){
+	//memes coord de points
 	if(triangle.A.x==A.x and triangle.A.y==A.y and triangle.B.x==B.x and triangle.B.y==B.y and triangle.C.x==C.x and triangle.C.y==C.y){
 		return true;
 	}
 	else{return false;}
 }
 
-bool isRightAngled(){}
+bool isRightAngled(){
+	
+}
 
 bool isEquilateral(){}
 
