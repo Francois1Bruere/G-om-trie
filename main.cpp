@@ -3,7 +3,6 @@
 #include "shapes.hpp"
 #include <vector>
 
-
 int main() {
 	
 	// Define points in a vector
