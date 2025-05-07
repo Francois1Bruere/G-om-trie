@@ -64,12 +64,19 @@ void Triangle::resize(double ratio) {
 
 }
 
-void rotate(double angle){
-	// rotate counterclockwise around the center of the triangle
+void Triangle::rotate(double angle) {
+	// rotate counterclockwise around the center of the triangle 
+	//use radiants angle
 	
-}  
+}
 
-bool equals(Triangle triangle){}
+
+bool equals(Triangle triangle){
+	if(triangle.A.x==A.x and triangle.A.y==A.y and triangle.B.x==B.x and triangle.B.y==B.y and triangle.C.x==C.x and triangle.C.y==C.y){
+		return true;
+	}
+	else{return false;}
+}
 
 bool isRightAngled(){}
 
