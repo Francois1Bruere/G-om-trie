@@ -1,1 +1,1 @@
-# G-om-trie
+# Géométrie
