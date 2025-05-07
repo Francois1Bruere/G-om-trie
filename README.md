@@ -2,22 +2,25 @@
 
 ### Objectif
 
-Ce projet est un mini-projet en C++ ayant pour but de :
-
-* manipuler les bases de la **programmation orientée objet** ;
-* représenter des **figures géométriques simples** (triangle, carré, cercle) ;
-* visualiser les figures via une **interface graphique simplifiée**.
-
----
+Tracer des triangles, des carrés et des cercles.
 
 ### Utilisation
 
 Après compilation, l’exécutable permet d’afficher différentes figures géométriques à l’aide d’une classe graphique type `CTurtle`.
 
+### Compilation
+
+Utiliser le makefile pour compiler ou commande suivante:
+
+```bash
+g++ -std=c++23 -Iinclude -o main src/*.cpp src/shapes/*.cpp main.cpp -lgdi32 -luser32
+```
+
+
 **Exécution :**
 
 ```bash
-./geometrie
+./main
 ```
 
 ---
@@ -29,12 +32,6 @@ Le code est découpé selon une structure modulaire propre à l’apprentissage 
 
 ---
 
-### Compilation
-
-#### Build :
-
-Utiliser le makefile pour compiler, puis exécuter avec:
-./main.exe
 
 #### Test :
 
