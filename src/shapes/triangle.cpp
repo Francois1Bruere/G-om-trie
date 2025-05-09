@@ -64,15 +64,34 @@ void Triangle::resize(double ratio) {
 
 }
 
-void Triangle::rotate(double angle) {
 	// rotate counterclockwise around the center of the triangle 
 	//use radiants angle
+
+void Triangle::rotate(double angle) {
+	// rotate counterclockwise around the center of the triangle 
+	//use degree angle
 	
-	Point o = center();
-	
-	
-	
+    Point o = center();
+    double r = angle * M_PI / 180.0;
+
+    A = Point(
+        o.x + (A.x - o.x) * cos(r) - (A.y - o.y) * sin(r),
+        o.y + (A.x - o.x) * sin(r) + (A.y - o.y) * cos(r)
+    );
+
+    B = Point(
+        o.x + (B.x - o.x) * cos(r) - (B.y - o.y) * sin(r),
+        o.y + (B.x - o.x) * sin(r) + (B.y - o.y) * cos(r)
+    );
+
+    C = Point(
+        o.x + (C.x - o.x) * cos(r) - (C.y - o.y) * sin(r),
+        o.y + (C.x - o.x) * sin(r) + (C.y - o.y) * cos(r)
+    );
+
+    draw();
 }
+
 
 
 bool equals(Triangle triangle){
@@ -83,10 +102,43 @@ bool equals(Triangle triangle){
 	else{return false;}
 }
 
-bool isRightAngled(){
-	
+bool Triangle::isRightAngled() {
+    double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
+    double bc = sqrt((B.x - C.x)*(B.x - C.x) + (B.y - C.y)*(B.y - C.y));
+    double ca = sqrt((C.x - A.x)*(C.x - A.x) + (C.y - A.y)*(C.y - A.y));
+
+    double eps = 1e-6;
+
+    bool check1 = (ab*ab - (bc*bc + ca*ca) < eps) && ((bc*bc + ca*ca) - ab*ab < eps);
+    bool check2 = (bc*bc - (ab*ab + ca*ca) < eps) && ((ab*ab + ca*ca) - bc*bc < eps);
+    bool check3 = (ca*ca - (ab*ab + bc*bc) < eps) && ((ab*ab + bc*bc) - ca*ca < eps);
+
+    return check1 || check2 || check3;
 }
 
-bool isEquilateral(){}
+bool Triangle::isEquilateral() {
+    double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
+    double bc = sqrt((B.x - C.x)*(B.x - C.x) + (B.y - C.y)*(B.y - C.y));
+    double ca = sqrt((C.x - A.x)*(C.x - A.x) + (C.y - A.y)*(C.y - A.y));
 
-bool isIsoceles(){}
+    double eps = 1e-6;
+
+    bool ab_bc = (ab - bc < eps) && (bc - ab < eps);
+    bool bc_ca = (bc - ca < eps) && (ca - bc < eps);
+
+    return ab_bc && bc_ca;
+}
+
+bool Triangle::isIsoceles() {
+    double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
+    double bc = sqrt((B.x - C.x)*(B.x - C.x) + (B.y - C.y)*(B.y - C.y));
+    double ca = sqrt((C.x - A.x)*(C.x - A.x) + (C.y - A.y)*(C.y - A.y));
+
+    double eps = 1e-6;
+
+    bool ab_bc = (ab - bc < eps) && (bc - ab < eps);
+    bool bc_ca = (bc - ca < eps) && (ca - bc < eps);
+    bool ab_ca = (ab - ca < eps) && (ca - ab < eps);
+
+    return ab_bc || bc_ca || ab_ca;
+}
