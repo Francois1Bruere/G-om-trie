@@ -1,6 +1,7 @@
 #include <cmath>
 #include "point.hpp"
 #include "triangle.hpp"
+#include <vector>
 
 using namespace std;
 
@@ -94,7 +95,7 @@ void Triangle::rotate(double angle) {
 
 
 
-bool equals(Triangle triangle){
+bool Triangle::equals(Triangle triangle){
 	//memes coord de points
 	if(triangle.A.x==A.x and triangle.A.y==A.y and triangle.B.x==B.x and triangle.B.y==B.y and triangle.C.x==C.x and triangle.C.y==C.y){
 		return true;
@@ -141,4 +142,36 @@ bool Triangle::isIsoceles() {
     bool ab_ca = (ab - ca < eps) && (ca - ab < eps);
 
     return ab_bc || bc_ca || ab_ca;
+}
+
+Circle Triangle::inscribedCircle() {
+    double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
+    double bc = sqrt((B.x - C.x)*(B.x - C.x) + (B.y - C.y)*(B.y - C.y));
+    double ca = sqrt((C.x - A.x)*(C.x - A.x) + (C.y - A.y)*(C.y - A.y));
+
+    double p = perimeter();
+
+    double x = (bc * A.x + ca * B.x + ab * C.x) / p;
+    double y = (bc * A.y + ca * B.y + ab * C.y) / p;
+
+    double r = area() / (p / 2);
+
+    return Circle(r, Point(x, y));
+}
+
+	
+Circle Triangle::circumscribedCircle() {
+    double D = 2 * (A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
+    
+    double x = ((A.x*A.x + A.y*A.y)*(B.y - C.y) + 
+                (B.x*B.x + B.y*B.y)*(C.y - A.y) + 
+                (C.x*C.x + C.y*C.y)*(A.y - B.y)) / D;
+
+    double y = ((A.x*A.x + A.y*A.y)*(C.x - B.x) + 
+                (B.x*B.x + B.y*B.y)*(A.x - C.x) + 
+                (C.x*C.x + C.y*C.y)*(B.x - A.x)) / D;
+
+    double r = sqrt((x - A.x)*(x - A.x) + (y - A.y)*(y - A.y));
+
+    return Circle(r, Point(x, y));
 }
