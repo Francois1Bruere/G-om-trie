@@ -1,6 +1,8 @@
 #include <cmath>
 #include "point.hpp"
-#include "triangle.hpp"
+#include "draw.hpp"
+//#include "triangle.hpp"
+#include "../include/shapes/triangle.hpp"
 #include <vector>
 
 using namespace std;
