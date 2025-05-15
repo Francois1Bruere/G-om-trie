@@ -72,7 +72,7 @@ void testTriangle() {
     assert(isequal(resizedCenter.y, 7.0 / 3.0));
 
     // Test rotate
-    triangle.rotate(pi/ 2); // Rotate 90 degrees
+    triangle.rotate(3.14159/ 2); // Rotate 90 degrees
     Point rotatedCenter = triangle.center();
     assert(isequal(rotatedCenter.x, 2.0));
     assert(isequal(rotatedCenter.y, 7.0 / 3.0));
