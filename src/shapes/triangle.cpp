@@ -36,6 +36,7 @@ void Triangle::draw(){
 		Point(A.x, A.y),
 		Point(B.x, B.y),
 		Point(C.x, C.y),
+		Point(A.x, A.y),
 	};
 	
 	// Draw the picture by connecting the points
