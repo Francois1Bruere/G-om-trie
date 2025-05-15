@@ -7,6 +7,12 @@
 
 using namespace std;
 
+//TO DO
+//utiliser la fonction qui fait la distance entre 2 points
+//Ne pas comparer des double dans equal
+//ABC peut etre egal a CAB
+//def des fonctions quand on fait des actions redondantes
+
 float pi=3.1415922;
 
 Triangle::Triangle(Point P,Point Q,Point R):A(P),B(Q),C(R){}
@@ -29,18 +35,8 @@ Point Triangle::center() {// computes the center of gravity of the triangle
 }
 
 void Triangle::draw(){
-	//from the  main
-
-	// Define points in a vector
-	std::vector<Point> points = {
-		Point(A.x, A.y),
-		Point(B.x, B.y),
-		Point(C.x, C.y),
-		Point(A.x, A.y),
-	};
-	
-	// Draw the picture by connecting the points
-	draw_picture(points);
+    std::vector<Point> points = {A, B, C, A};
+    draw_picture(points);
 }
 
 void Triangle::translate(Point T) {
@@ -166,7 +162,6 @@ Circle Triangle::inscribedCircle() {
     return Circle(r, Point(x, y));
 }
 
-	
 Circle Triangle::circumscribedCircle() {
     double D = 2 * (A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
     
