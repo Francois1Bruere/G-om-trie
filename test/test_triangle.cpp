@@ -5,7 +5,7 @@
 using namespace std;
 
 // Function isequal
-bool isequal(double a, double b, double epsilon = 1e-2) {
+bool isequal(double a, double b, double epsilon = 1e-8) {
     return abs(a - b) < epsilon;
 }
 
