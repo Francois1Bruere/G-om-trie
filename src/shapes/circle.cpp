@@ -21,7 +21,7 @@ double Circle::area()
 void Circle::draw()
 {
     vector<Point> points;
-    int num_points = 150;
+    int num_points = 250;
 
     for (int i = 0; i < num_points; i++)
     {
@@ -47,7 +47,7 @@ void Circle::resize(double ratio)
     radius *= ratio;
     draw();
 }
-
+// les trois figures sont presentent
 bool Circle::equals(Circle circle) // deux cercles sont egaux quand ils ont le meme centre meme rayon
 {
     return (center.x == circle.center.x && center.y == circle.center.y && radius == circle.radius);

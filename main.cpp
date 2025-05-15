@@ -18,12 +18,16 @@ int main()
 	};
 	double r = 50;
 	Point c = Point(0, 0);
+	double ratio = 2;
+	Point T = Point(7, 7);
 	Circle cer = Circle(r, c);
 	cer.area();
 	cer.draw();
-
-	// Draw the picture by connecting the points
-	// draw_picture(points);
+	cer.translate(T);
+	cer.resize(ratio);
+	// les trois figures sont presentent
+	//  Draw the picture by connecting the points
+	//  draw_picture(points);
 
 	return 0;
 }
