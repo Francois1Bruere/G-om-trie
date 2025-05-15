@@ -1,6 +1,6 @@
-#include "square.hpp"
-#include "point.hpp"
-#include "circle.hpp"
+#include "../include/shapes/square.hpp"
+#include "../include/point.hpp"
+#include "../include/shapes/circle.hpp"
 #include <cassert>
 #include <cmath>
 using namespace std;

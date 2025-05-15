@@ -1,5 +1,5 @@
-#include "circle.hpp"
-#include "point.hpp"
+#include "../include/shapes/circle.hpp"
+#include "../include/point.hpp"
 #include <cassert>
 #include <cmath>
 using namespace std;
