@@ -9,6 +9,8 @@ using namespace std;
 
 float pi=3.1415922;
 
+Triangle::Triangle(Point P,Point Q,Point R):A(P),B(Q),C(R){}
+
 double Triangle::perimeter() {
     double ab = sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
     double bc = sqrt((B.x - C.x) * (B.x - C.x) + (B.y - C.y) * (B.y - C.y));
