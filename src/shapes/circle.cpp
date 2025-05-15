@@ -1,6 +1,6 @@
-#include "draw.hpp"
-#include "point.hpp"
-#include "shapes/circle.hpp"
+#include "../../include/draw.hpp"
+#include "../../include/point.hpp"
+#include "../../include/shapes/circle.hpp"
 #include <cmath>
 #include <vector>
 
@@ -21,7 +21,7 @@ double Circle::area()
 void Circle::draw()
 {
     vector<Point> points;
-    int num_points = 150;
+    int num_points = 100;
 
     for (int i = 0; i < num_points; i++)
     {

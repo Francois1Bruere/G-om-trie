@@ -1,7 +1,4 @@
-#include "../../include/point.hpp"
-#include "../../include/shapes/square.hpp"
-
-Square::Square(Point P, Point R) : A(P), C(R) {};#include "point.hpp"
+#include "point.hpp"
 #include "shapes/square.hpp"
 #include "draw.hpp"
 #include <cmath>
@@ -10,7 +7,7 @@ Square::Square(Point P, Point R) : A(P), C(R) {};#include "point.hpp"
 #include <iostream>
 using namespace std;
 
-Square::Square(Point P, Point R) : A(P), C(R) {}
+Square::Square(Point P, Point R) : A(P), C(R) {};
 
 double Square::side(){
     double distance =0;

@@ -13,7 +13,17 @@ int main() {
 		Point(0, 100),
 		Point(0, 0)
 	};
-	
+
+	Point A=(0,0),B=(100,0), C=(0,100);
+	double r=100;
+	Circle F1=Circle(r,A);
+	Triangle F2=Triangle(A,B,C);
+	Square F3=Square(A,C);
+	F1.draw();
+	F2.draw();
+	F3.draw();
+
+
 	// Draw the picture by connecting the points
 	draw_picture(points);
 	
