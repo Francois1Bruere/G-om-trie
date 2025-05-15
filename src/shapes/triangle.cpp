@@ -7,6 +7,8 @@
 
 using namespace std;
 
+float pi=3.1415922
+
 double Triangle::perimeter() {
     double ab = sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
     double bc = sqrt((B.x - C.x) * (B.x - C.x) + (B.y - C.y) * (B.y - C.y));
@@ -75,7 +77,7 @@ void Triangle::rotate(double angle) {
 	//use degree angle
 	
     Point o = center();
-    double r = angle * M_PI / 180.0;
+    double r = angle * pi / 180.0;
 
     A = Point(
         o.x + (A.x - o.x) * cos(r) - (A.y - o.y) * sin(r),
