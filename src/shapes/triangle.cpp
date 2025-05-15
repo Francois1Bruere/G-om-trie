@@ -18,7 +18,7 @@ double Triangle::area() {
     return 0.5 * abs(A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
 }
 
-Point Triangle::center() {
+Point Triangle::center() {// computes the center of gravity of the triangle
     double centerX = (A.x + B.x + C.x) / 3.0;
     double centerY = (A.y + B.y + C.y) / 3.0;
     return Point(centerX, centerY);
