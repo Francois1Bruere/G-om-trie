@@ -35,7 +35,12 @@ Aucune bibliothèque externe n’est requise en dehors du standard C++.
 #### Test :
 
 ```bash
+<<<<<<< HEAD
 g++ -std=c++23 -Iinclude src/shapes/*.cpp test/*.cpp -o test_shapes
+=======
+g++ -std=c++23 -Iinclude src/shapes/*.cpp tests/test_shapes.cpp -o test_shapes
+./test_shapes
+>>>>>>> 6eb6b48ae346d5400714b73c6595d6c50e36c58d
 ```
 
 ---
