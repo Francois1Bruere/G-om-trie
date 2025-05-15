@@ -7,7 +7,7 @@
 
 using namespace std;
 
-float pi=3.1415922
+float pi=3.1415922;
 
 double Triangle::perimeter() {
     double ab = sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
