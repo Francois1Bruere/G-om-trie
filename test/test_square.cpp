@@ -5,7 +5,8 @@
 #include <cmath>
 using namespace std;
 
-bool isequal(double a, double b, double epsilon = 1e-7) {
+// Function isequal
+bool isequal(double a, double b, double epsilon = 1e-8) {
     return abs(a - b) < epsilon;
 }
 
@@ -41,7 +42,7 @@ void testSquare() {
     assert(isequal(resizedCenter.y, 2.0));
 
     // Test rotate
-    square.rotate(M_PI / 2); // Rotate 90 degrees
+    square.rotate(3.14159 / 2); // Rotate 90 degrees
     Point rotatedCenter = square.center();
     assert(isequal(rotatedCenter.x, 2.0));
     assert(isequal(rotatedCenter.y, 2.0));

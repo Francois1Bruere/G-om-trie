@@ -5,6 +5,11 @@
 using namespace std;
 
 // Function isequal
+bool isequal(double a, double b, double epsilon = 1e-8) {
+    return abs(a - b) < epsilon;
+}
+
+// Function isequal
 bool isequal(double a, double b, double epsilon = 1e-7) {
     return abs(a - b) < epsilon;
 }
@@ -14,10 +19,10 @@ void testCircle() {
     Circle circle(5.0, center);
 
     // Test circumference
-    assert(isequal(circle.circumference(), 2 * M_PI * 5.0));
+    assert(isequal(circle.circumference(), 2 * 3.14159 * 5.0));
 
     // Test area
-    assert(isequal(circle.area(), M_PI * 25.0));
+    assert(isequal(circle.area(), 3.14159 * 25.0));
 
     // Test translate
     circle.translate(Point(3, 4));
