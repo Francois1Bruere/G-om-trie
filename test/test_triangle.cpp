@@ -1,11 +1,11 @@
-#include "triangle.hpp"
-#include "point.hpp"
+#include "../include/shapes/triangle.hpp"
+#include "../include/point.hpp"
 #include <cassert>
 #include <cmath>
 using namespace std;
 
 // Function isequal
-bool isEqual(double a, double b, double epsilon = 1e-2) {
+bool isequal(double a, double b, double epsilon = 1e-2) {
     return abs(a - b) < epsilon;
 }
 
