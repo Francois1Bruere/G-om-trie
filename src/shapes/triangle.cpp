@@ -9,18 +9,20 @@ using namespace std;
 
 //TO DO
 //utiliser la fonction qui fait la distance entre 2 points
-//Ne pas comparer des double dans equal
-//ABC peut etre egal a CAB
 //def des fonctions quand on fait des actions redondantes
+
+bool pointEquals(Point p1, Point p2, double eps = 1e-6) {
+    return fabs(p1.x - p2.x) < eps && fabs(p1.y - p2.y) < eps;
+}
 
 float pi=3.1415922;
 
 Triangle::Triangle(Point P,Point Q,Point R):A(P),B(Q),C(R){}
 
 double Triangle::perimeter() {
-    double ab = sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
-    double bc = sqrt((B.x - C.x) * (B.x - C.x) + (B.y - C.y) * (B.y - C.y));
-    double ca = sqrt((C.x - A.x) * (C.x - A.x) + (C.y - A.y) * (C.y - A.y));
+    double ab = A.distance(B);
+    double bc = B.distance(C);
+    double ca = C.distance(A);
     return ab + bc + ca;
 }
 
@@ -98,13 +100,24 @@ void Triangle::rotate(double angle) {
 
 
 
-bool Triangle::equals(Triangle triangle){
-	//memes coord de points
-	if(triangle.A.x==A.x and triangle.A.y==A.y and triangle.B.x==B.x and triangle.B.y==B.y and triangle.C.x==C.x and triangle.C.y==C.y){
-		return true;
-	}
-	else{return false;}
+bool Triangle::equals(Triangle triangle) {
+    std::vector<Point> thisPoints = {A, B, C};
+    std::vector<Point> otherPoints = {triangle.A, triangle.B, triangle.C};
+
+    for (int offset = 0; offset < 3; ++offset) {
+        bool match = true;
+        for (int i = 0; i < 3; ++i) {
+            if (!pointEquals(thisPoints[i], otherPoints[(i + offset) % 3])) {
+                match = false;
+                break;
+            }
+        }
+        if (match) return true;
+    }
+
+    return false;
 }
+
 
 bool Triangle::isRightAngled() {
     double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
@@ -121,9 +134,9 @@ bool Triangle::isRightAngled() {
 }
 
 bool Triangle::isEquilateral() {
-    double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
-    double bc = sqrt((B.x - C.x)*(B.x - C.x) + (B.y - C.y)*(B.y - C.y));
-    double ca = sqrt((C.x - A.x)*(C.x - A.x) + (C.y - A.y)*(C.y - A.y));
+    double ab = A.distance(B);
+    double bc = B.distance(C);
+    double ca = C.distance(A);
 
     double eps = 1e-6;
 
@@ -134,9 +147,9 @@ bool Triangle::isEquilateral() {
 }
 
 bool Triangle::isIsoceles() {
-    double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
-    double bc = sqrt((B.x - C.x)*(B.x - C.x) + (B.y - C.y)*(B.y - C.y));
-    double ca = sqrt((C.x - A.x)*(C.x - A.x) + (C.y - A.y)*(C.y - A.y));
+    double ab = A.distance(B);
+    double bc = B.distance(C);
+    double ca = C.distance(A);
 
     double eps = 1e-6;
 
@@ -148,9 +161,9 @@ bool Triangle::isIsoceles() {
 }
 
 Circle Triangle::inscribedCircle() {
-    double ab = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
-    double bc = sqrt((B.x - C.x)*(B.x - C.x) + (B.y - C.y)*(B.y - C.y));
-    double ca = sqrt((C.x - A.x)*(C.x - A.x) + (C.y - A.y)*(C.y - A.y));
+    double ab = A.distance(B);
+    double bc = B.distance(C);
+    double ca = C.distance(A);
 
     double p = perimeter();
 
