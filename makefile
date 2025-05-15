@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++23 -Iinclude
-LDFLAGS = -lX11  # ← ou bien -lgdi32 -luser32, selon ton OS
+LDFLAGS = -lgdi32 -luser32
 SRC = src/*.cpp src/shapes/*.cpp main.cpp
 
 .PHONY: all clean
