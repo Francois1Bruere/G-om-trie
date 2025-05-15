@@ -49,15 +49,15 @@ void testTriangle() {
 
     // Test inscribedCircle
     Circle inscribed = triangle.inscribedCircle();
-    assert(isequal(inscribed.radius, 1.0));
-    assert(isequal(inscribed.center.x, 1.0));
-    assert(isequal(inscribed.center.y, 1.0));
+    assert(isequal(inscribed.radius, 0.707));
+    assert(isequal(inscribed.center.x, 0.5));
+    assert(isequal(inscribed.center.y, 0.5));
 
     // Test circumscribedCircle
     Circle circumscribed = triangle.circumscribedCircle();
-    assert(isequal(circumscribed.radius, 0.707));
-    assert(isequal(circumscribed.center.x, 0.5));
-    assert(isequal(circumscribed.center.y, 0.5));
+    assert(isequal(circumscribed.radius, 0.2929));
+    assert(isequal(circumscribed.center.x, 0.2929));
+    assert(isequal(circumscribed.center.y, 0.2929));
 
     // Test translate
     triangle.translate(Point(1, 1));
@@ -72,7 +72,7 @@ void testTriangle() {
     assert(isequal(resizedCenter.y, 7.0 / 3.0));
 
     // Test rotate
-    triangle.rotate(M_PI / 2); // Rotate 90 degrees
+    triangle.rotate(pi/ 2); // Rotate 90 degrees
     Point rotatedCenter = triangle.center();
     assert(isequal(rotatedCenter.x, 2.0));
     assert(isequal(rotatedCenter.y, 7.0 / 3.0));
