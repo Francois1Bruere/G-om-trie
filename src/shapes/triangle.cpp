@@ -15,6 +15,12 @@ bool pointEquals(Point p1, Point p2, double eps = 1e-6) {
     return fabs(p1.x - p2.x) < eps && fabs(p1.y - p2.y) < eps;
 }
 
+Point rotatePoint(const Point& P, const Point& o, double r) {
+	double x_new = o.x + (P.x - o.x) * cos(r) - (P.y - o.y) * sin(r);
+	double y_new = o.y + (P.x - o.x) * sin(r) + (P.y - o.y) * cos(r);
+	return Point(x_new, y_new);
+	}
+
 float pi=3.1415922;
 
 Triangle::Triangle(Point P,Point Q,Point R):A(P),B(Q),C(R){}
@@ -79,23 +85,14 @@ void Triangle::rotate(double angle) {
 	
     Point o = center();
     double r = angle * pi / 180.0;
+    
+    A = rotatePoint( A,o,  r);
 
-    A = Point(
-        o.x + (A.x - o.x) * cos(r) - (A.y - o.y) * sin(r),
-        o.y + (A.x - o.x) * sin(r) + (A.y - o.y) * cos(r)
-    );
+    B = rotatePoint( B,o,  r);
 
-    B = Point(
-        o.x + (B.x - o.x) * cos(r) - (B.y - o.y) * sin(r),
-        o.y + (B.x - o.x) * sin(r) + (B.y - o.y) * cos(r)
-    );
+    C = rotatePoint( C,o,  r);
 
-    C = Point(
-        o.x + (C.x - o.x) * cos(r) - (C.y - o.y) * sin(r),
-        o.y + (C.x - o.x) * sin(r) + (C.y - o.y) * cos(r)
-    );
-
-    draw();
+    //draw();
 }
 
 
