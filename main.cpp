@@ -17,7 +17,7 @@ int main() {
 	Point A=(0,0), B=(100,0), C=(0,100);
 	double r=100;
 	Circle F1=Circle(r,A);
-	//Triangle F2=Triangle(A,B,C);
+	Triangle F2=Triangle(A,B,C);
 	F1.draw();
 	F2.draw();
 
