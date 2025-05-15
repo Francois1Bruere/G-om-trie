@@ -35,7 +35,7 @@ Aucune bibliothèque externe n’est requise en dehors du standard C++.
 #### Test :
 
 ```bash
-g++ -std=c++11 -Iinclude src/shapes/*.cpp tests/test_shapes.cpp -o test_shapes
+g++ -std=c++23 -Iinclude src/shapes/*.cpp tests/test_shapes.cpp -o test_shapes
 ./test_shapes
 ```
 
