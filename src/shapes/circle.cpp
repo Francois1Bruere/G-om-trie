@@ -39,7 +39,7 @@ void Circle::translate(Point T)
 {
     center.x += T.x;
     center.y += T.y;
-    draw();//DFDS
+    draw();//DFDSdfghj
 }
 
 void Circle::resize(double ratio)
